@@ -1,7 +1,6 @@
 import random
 
 print("Howdy! Welcome to Cowboy Slots!")
-# print("Your current balance is $100\n")
 
 balance = 100
 
@@ -21,3 +20,4 @@ def play():
         slotThree = spinWheel()
         printScore()
         playQuestion = askPlayer()
+
