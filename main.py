@@ -19,5 +19,4 @@ def play():
         slotTwo = spinWheel()
         slotThree = spinWheel()
         printScore()
-        playQuestion = askPlayer()
-
+        
