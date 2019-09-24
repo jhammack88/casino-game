@@ -1,7 +1,7 @@
 import random
 print("Howdy! Welcome to Cowboy Slots!")
 
-balance = 100
+user_wallet = 100
 
 slot_options = {
     "7" : 10,
@@ -32,6 +32,14 @@ def winning(reels):
     print(winnings)
     return winnings
 
-    
-
 winning(reels)
+
+def wallet():
+    global user_wallet
+    add_money = float(input("how much would you like to add? "))
+    user_wallet += add_money
+wallet()
+
+print(user_wallet)
+
+
