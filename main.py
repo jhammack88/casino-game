@@ -1,7 +1,4 @@
 import random
-print("Howdy! Welcome to Cowboy Slots!")
-
-user_wallet = 0
 
 slot_options = {
     "7" : 10,
@@ -12,9 +9,8 @@ slot_options = {
     "Apple" : 7
 }
 
-def spin_wheel(slot_options):
+def spin_wheel(slot_options, bet):
     global user_wallet
-    bet = float(input("How much would you like to bet? $"))
     if user_wallet < bet:
         print("NOT enough skins bro!!")
         wallet()
@@ -48,7 +44,7 @@ def nav():
     global user_wallet
     user_choice = input("what would you like to do? \n 1: Spin Wheel \n 2: Check Balance \n 3: Cash Out \n")
     if user_choice == "1":
-        reels = spin_wheel(slot_options)
+        reels = spin_wheel(slot_options, bet)
     elif user_choice == "2":
         print(f"your current balance is.. ${user_wallet}")
         nav()
@@ -67,8 +63,10 @@ def wallet():
         wallet()
     
 
-
-wallet()
+print("Howdy! Welcome to Cowboy Slots!")
+user_wallet = float(input("How much would you like to add? $"))
+bet = float(input("How much would you like to bet? $"))
+reels = spin_wheel(slot_options, bet)
 
 
 
