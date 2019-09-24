@@ -12,8 +12,12 @@ slot_options = {
     "Apple" : 7
 }
 
-def spin_wheel(slot_options, bet):
+def spin_wheel(slot_options):
     global user_wallet
+    bet = float(input("How much would you like to bet? $"))
+    if user_wallet < bet:
+        print("not enough skins bro")
+        wallet()
     reel1 = random.choices(list(slot_options.keys()), list(slot_options.values()))
     reel2 = random.choices(list(slot_options.keys()), list(slot_options.values()))
     reel3 = random.choices(list(slot_options.keys()), list(slot_options.values()))
@@ -21,6 +25,7 @@ def spin_wheel(slot_options, bet):
     reels = [reel1[0], reel2[0], reel3[0]]
     user_wallet -= bet
     print(reels)
+    winning(reels)
     return reels
 
 
@@ -33,27 +38,40 @@ def winning(reels):
     else: 
         winnings = 0
     user_wallet += winnings    
-    print(winnings)
+    print(f"${winnings}")
+    print(f"${user_wallet}")
+    nav()
     return winnings
 
 
 def wallet():
     global user_wallet
-    add_money = float(input("how much would you like to add? "))
+    add_money = float(input("how much would you like to add? $"))
     user_wallet += add_money
 
 
 
 wallet()
 
-bet = float(input("How much would you like to bet?"))
+
 
 def nav():
-    
+    global user_wallet
+    user_choice = input("what would you like to do? \n 1: Spin Wheel \n 2: Check Balance \n 3: Cash Out \n")
+    if user_choice == "1":
+        reels = spin_wheel(slot_options)
+    elif user_choice == "2":
+        print(f"your current balance is.. ${user_wallet}")
+        nav()
+    elif user_choice == "3":
+        print(f"Thanks! Your final balance is.. ${user_wallet}") 
+        exit()
 
-reels = spin_wheel(slot_options, bet)
-winning(reels)
 
-print(user_wallet)
+
+
+nav()
+
+
 
 
