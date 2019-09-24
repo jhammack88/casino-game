@@ -1,8 +1,9 @@
 import random
 
 print("Howdy! Welcome to Cowboy Slots!")
+print("Your current balance is $100\n")
 
-current_balance = "100"
+balance = 100
 
-symbols = ["Boot", "Hat", "Horse", "Gun"]
+ITEMS = ["BOOT", "HAT", "GUN", "SADDLE", "LASSO", "GOLD"]
 
