@@ -29,30 +29,34 @@ def spin_wheel(slot_options, bet):
 def winning(reels, slot_options):
     global user_wallet
     if reels[0] == reels[1] and reels[2] == reels[1]:
-        winnings = 10 * (1 / slot_options[reels[0]])
+        winnings = 300 * (.5 / slot_options[reels[0]])
     elif reels[0] == reels[1] or reels[2] == reels[0]:
-        winnings = 7 * (1 / slot_options[reels[0]])
+        winnings = 200 * (1 / slot_options[reels[0]])
     elif reels[1] == reels[2]:
-        winnings = 7 * (1 / slot_options[reels[1]])
+        winnings = 100 * (1 / slot_options[reels[1]])
     else: 
         winnings = 0
     user_wallet += winnings    
-    print(f"${winnings:.2f}")
-    print(f"${user_wallet}")
+    print(f"You WIN!! ...${winnings:.8f}")
+    print(f"Your new balance is ...${user_wallet}")
     nav()
     return winnings
 
 def nav():
     global user_wallet
-    user_choice = input("What would you like to do? \n 1: Spin Wheel \n 2: Check Balance \n 3: Cash Out \n")
+    user_choice = input("What would you like to do? \n 1: Spin Wheel \n 2: Check Balance \n 3: Add Funds \n 4: Cash Out")
     if user_choice == "1":
         reels = spin_wheel(slot_options, bet)
     elif user_choice == "2":
         print(f"Your current balance is.. ${user_wallet}")
         nav()
     elif user_choice == "3":
+        input("How much would you like to add?")
+    elif user_choice == "4":
         print(f"Thanks! Your final balance is.. ${user_wallet}") 
         exit()
+
+    
 
 def wallet():
     global user_wallet
